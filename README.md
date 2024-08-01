@@ -24,9 +24,10 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
 1. Clone ydlidar_ros2_driver package from github : 
 
    `cd ~/ros2_ws/src`
+   
    `git clone -b humble https://github.com/MohammadRobot/ydlidar_ros2_driver.git`
 
-2. Build ydlidar_ros2_driver package :
+3. Build ydlidar_ros2_driver package :
 
    ```
    cd ~/ros2_ws
@@ -40,7 +41,7 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
 
    ![CMAKE ERROR](images/cmake_error.png  "CMAKE ERROR")
 
-3. Package environment setup :
+4. Package environment setup :
 
    `source ./install/setup.bash`
 
@@ -50,7 +51,7 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
     $echo "source ~/ydlidar_ros2_ws/install/setup.bash" >> ~/.bashrc
     $source ~/.bashrc
     ```
-4. Confirmation
+5. Confirmation
     To confirm that your package path has been set, printenv the `grep -i ROS` variable.
     ```
     $ printenv | grep -i ROS
@@ -58,7 +59,7 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
     You should see something similar to:
         `OLDPWD=/home/tony/ydlidar_ros2_ws/install`
 
-5. Create serial port Alias [optional] 
+6. Create serial port Alias [optional] 
     ```
 	$chmod 0777 src/ydlidar_ros2_driver/startup/*
 	$sudo sh src/ydlidar_ros2_driver/startup/initenv.sh
