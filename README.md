@@ -21,14 +21,15 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
 
 ## Clone ydlidar_ros2_driver
 
-1. Clone ydlidar_ros2_driver package for github : 
+1. Clone ydlidar_ros2_driver package from github : 
 
-   `git clone https://github.com/YDLIDAR/ydlidar_ros2_driver.git ydlidar_ros2_ws/src/ydlidar_ros2_driver`
+   `cd ~/ros2_ws/src`
+   `git clone -b humble https://github.com/MohammadRobot/ydlidar_ros2_driver.git`
 
 2. Build ydlidar_ros2_driver package :
 
    ```
-   cd ydlidar_ros2_ws
+   cd ~/ros2_ws
    colcon build --symlink-install
    ```
    Note: install colcon [see](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/#install-colcon)
