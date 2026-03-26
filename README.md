@@ -32,8 +32,9 @@ ydlidar_ros2_driver depends on YDLidar-SDK library. If you have never installed 
 2. Build ydlidar_ros2_driver package :
 
    ```
-   cd ydlidar_ros2_ws
-   colcon build --symlink-install
+   cd ~/ros2_ws
+   colcon build  --packages-select ydlidar_ros2_driver --symlink-install
+   source ~/ros2_ws/install/setup.bash
    ```
    Note: install colcon [see](https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/#install-colcon)
 
@@ -124,6 +125,21 @@ The command format is :
    ```
    ros2 launch ydlidar_ros2_driver ydlidar_launch.py 
    ```
+   Use model preset (example: Tmini/Tmini Plus):
+   ```
+   ros2 launch ydlidar_ros2_driver ydlidar_launch.py lidar_type:=tmini
+   ```
+   or 
+   ```
+   ros2 launch ydlidar_ros2_driver ydlidar_tmini.launch.py 
+   ```
+   Note: `lidar_type:=timini` is also accepted as an alias.
+   Use a specific YAML file directly:
+   ```
+   ros2 launch ydlidar_ros2_driver ydlidar_launch.py \
+     params_file:=$(ros2 pkg prefix ydlidar_ros2_driver)/share/ydlidar_ros2_driver/params/Tmini.yaml
+   ```
+   Note: when `params_file` is set, it overrides `lidar_type`.
    or 
 
    ```
@@ -149,7 +165,7 @@ is `"ydlidar_ros2_ws/src/ydlidar_ros2_driver/launch"`. All launch files are list
 | launch file               | features                                                     |
 | ------------------------- | ------------------------------------------------------------ |
 | ydlidar.py         | Connect to defualt paramters<br/>Publish LaserScan message on `scan` topic |
-| ydlidar_launch.py         | Connect ydlidar.yaml Lidar specified by configuration parameters<br/>Publish LaserScan message on `scan` topic |
+| ydlidar_launch.py         | Supports `lidar_type:=<model>` presets or `params_file:=<yaml>` override<br/>Publish LaserScan message on `scan` topic |
 | ydlidar_launch_view.py         | Connect ydlidar.yaml Lidar specified by configuration parameters and setup RVIZ<br/>Publish LaserScan message on `scan` topic |
 
 
@@ -200,7 +216,6 @@ More paramters details, see [here](details.md)
 ![Development Path](images/EAI.png)
 
 If you have any extra questions, please feel free to [contact us](http://www.ydlidar.cn/cn/contact)
-
 
 
 
